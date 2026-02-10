@@ -130,7 +130,6 @@ http://localhost:8080/swagger-ui.html
 
 ## 🚀 Future Enhancements (Optional)
 
-* Spring Security + JWT
 * Daily transaction limits
 * Statement PDF generation
 * Database migration (Flyway)
