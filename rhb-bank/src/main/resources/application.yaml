@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+    hikari:
+      pool-name: BankHikariPool
+      minimum-idle: 5
+      maximum-pool-size: 10
+      idle-timeout: 30000        # 30 sec
+      max-lifetime: 600000       # 10 min
+      connection-timeout: 20000  # 20 sec
+      auto-commit: false
+      transaction-isolation: TRANSACTION_READ_COMMITTED
+      leak-detection-threshold: 5000
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          batch_size: 25
+        order_inserts: true
+        order_updates: true
+        default_schema: rbh_bank
+        connection:
+          provider_disables_autocommit: true
+
+  sql:
+    init:
+      mode: always
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
